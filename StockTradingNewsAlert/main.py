@@ -33,7 +33,7 @@ if round(percentage, 2) > 5 or round(percentage, 2) < -5:
     print(dataNews)
 
 account_sid = "ACb087a90e312b0465fc65f4828bf73419"
-auth_token = "a444aca3a5e7b31bcf52e0719ae3c773"
+auth_token = os.environ["AUTH_TOKEN"]
 client = Client(account_sid, auth_token)
 
 mes = ""
