@@ -2,6 +2,7 @@ import time
 import requests
 from datetime import datetime
 import smtplib
+import os
 
 MY_LAT = 42.879280
 MY_LNG = 18.432751
@@ -38,14 +39,17 @@ def isDark():
 
     if timeNow.hour < sunrise or timeNow.hour > sunset:
         return True
+    
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
 
 while True:
     time.sleep(60)
     if isClose() and isDark():
         connection = smtplib.SMTP("smtp.gmail.com")
         connection.starttls()
-        connection.login(user="vukvukovic035@yahoo.com", password="t3LAJDPc@kB-x8%")
-        connection.sendmail(from_addr="vukvukovic035@yahoo.com", to_addrs="vukvukovic035@yahoo.com", msg="Look up for ISS")
+        connection.login(user=USER, password=PASSWORD)
+        connection.sendmail(from_addr=USER, to_addrs=USER, msg="Look up for ISS")
         connection.close()
 
 
