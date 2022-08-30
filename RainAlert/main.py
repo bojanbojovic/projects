@@ -4,7 +4,7 @@ from twilio.rest import Client
 
 apiKey = os.environ.get("OWM_API_KEY")
 account_sid = "ACb087a90e312b0465fc65f4828bf73419"
-auth_token = "a444aca3a5e7b31bcf52e0719ae3c773"
+auth_token = os.environ.get("AUTH_TOKEN")
 
 response = requests.get(url="https://api.openweathermap.org/data/3.0/onecall?lat=58.06&lon=105.2&exclude=daily,minutely,alerts&appid=ce777cc8e186b58c316652c06683e924")
 response.raise_for_status()
